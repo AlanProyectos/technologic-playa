@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/inventario"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Detalle de Inventario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <div *ngIf="productos">
+    <div *ngFor="let product of productos">
+      <ion-item color="dark" (click)="abrirProducto(product)">
+        <ion-label>
+          {{product.marcaProducto}}
+            <ion-label>
+              <small>
+                {{product.modeloProducto}}
+              </small>
+            </ion-label>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <div *ngIf="cantProducto == 0" class="container" color="dark"> 
+    <ion-row>
+      <ion-col>
+        <ion-img src="assets/icon/technologic_logo.png"></ion-img>
+        <h3>
+          No hay ningun producto existente
+        </h3>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

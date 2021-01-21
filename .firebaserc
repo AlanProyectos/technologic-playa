@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "technologic-playa"
+  },
+  "targets": {
+    "technologic-playa": {
+      "hosting": {
+        "app": [
+          "technologic-playa"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "technologic-playa",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "c2b01efe"
+}

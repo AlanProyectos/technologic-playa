@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/reparaciones-pendientes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reparaciones Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <div color="dark" *ngFor="let reparacion of reparaciones">
+    <ion-row>
+      <ion-col size="12">
+        <h3 style="text-align: end;">
+          {{reparacion.fecha_dejaron}}
+        </h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Cliente 
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparacion.nombre_cliente}}
+        </h4>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Telefono
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparacion.telefono}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Marca
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparacion.marca}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Modelo
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparacion.modelo}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Color
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparacion.color}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Password
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparacion.password}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Descripcion
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparacion.descripcion}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Partes por Reparar
+        </h4>
+      </ion-col>
+      <ion-col>
+        <ul *ngFor="let partes of reparacion.partes_reparar">
+          <li>{{partes}}</li>
+        </ul>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="reparacion.encendido == true">
+      <ion-col size="12">
+        <h4 style="text-align: center;">
+          El Telefono Esta Encendido
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="reparacion.encendido == false">
+      <ion-col size="12">
+        <h4 style="text-align: center;">
+          El Telefono No Esta Encendido
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="reparacion.entregado == true">
+      <ion-col size="12">
+        <h5 color="success" style="text-align: center;color:greenyellow">
+          El Telefono ha sido entregado en la fecha {{reparacion.fecha_entrega}}
+        </h5>
+      </ion-col>
+    </ion-row>
+
+    
+
+    <ion-row *ngIf="reparacion.entregado == false">
+      <ion-col size="12">
+        <h4 color="success" style="text-align: center; color:red">
+          El Telefono no ha sido Entregado
+        </h4>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" color="success" (click)="entregarCelular(reparacion.id)">
+          <h5>
+            Entregar Celular
+          </h5>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    
+
+
+
+  </div>
+</ion-content>

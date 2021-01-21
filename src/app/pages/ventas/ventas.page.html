@@ -1,0 +1,132 @@
+<app-menu ></app-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Generar Venta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content color="dark">
+
+    
+
+
+      <form class="container">
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="roundedInput">
+              <ion-input type="number" placeholder="Orden de Venta" #orden></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-item class="roundedInput">
+              <ion-input type="email" placeholder="Email del Cliente" #emailCliente></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-item class="roundedInput">
+              <ion-datetime displayFormat="MM DD YY" placeholder="Fecha de Orden" #fechaOrden></ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-item class="roundedInput">
+              <ion-input type="tel" placeholder="Telefono del Cliente" #telefono></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-item color="dark" class="mt-2">
+              <ion-label>
+                Vendedor
+              </ion-label>
+              <ion-select [(ngModel)]="vendedor_opt" okText="Okay" cancelText="Dismiss" [ngModelOptions]="{standalone: true}">
+                <ion-select-option *ngFor="let usuario of usuarios" [value]="usuario.uid">{{usuario.displayName}}</ion-select-option>
+              </ion-select>
+              
+            </ion-item>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input type="text" placeholder="ID Producto" #productoEscan value="{{this.productoScaneado}}"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="3">
+              <ion-icon (click)="scan()" style="font-size: 3.5rem;" name="qr-code-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="3">
+            <ion-icon (click)="obtenerProducto(productoEscan)" style="font-size: 3.5rem;" name="search-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="dark">
+              <ion-label>{{this.new_producto.producto}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item color="dark">
+              <ion-label>{{this.new_producto.modeloProducto}}</ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item color="dark">
+              <ion-label>{{this.new_producto.marcaProducto}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col>
+            <ion-item class="roundedInput">
+              <ion-input type="number" placeholder="Cantidad de la Venta" (change)="calcularPrecio(cantVenta)" required #cantVenta></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      
+        <ion-row>
+          <ion-col>
+            <ion-label>
+              Total
+            </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>
+              {{this.totalVenta}}
+            </ion-label>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" (click)="ventaCompletada(orden, emailCliente,fechaOrden,telefono,cantVenta)" color="success" expand="block" >
+              Vender Producto
+            </ion-button>
+          </ion-col>
+        </ion-row>
+    
+      </form>
+
+  </ion-content>
+</div>

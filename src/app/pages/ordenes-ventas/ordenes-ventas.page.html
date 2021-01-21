@@ -1,0 +1,28 @@
+
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ordenes de Venta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <div color="dark" *ngFor="let orden of ordenes_venta">
+
+    <ion-item-sliding>
+ 
+     <ion-item color="dark" (click)="redirigirDetalleVenta(orden.id)">
+      Orden {{orden.ordenVentaId}}
+     </ion-item>
+ 
+     <ion-item-options>
+       <button class="colorSlide" (click)="eliminarVenta(orden.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+       </button>
+     </ion-item-options>
+   </ion-item-sliding>
+ 
+  </div>
+</ion-content>

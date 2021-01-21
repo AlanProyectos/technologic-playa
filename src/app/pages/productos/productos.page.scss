@@ -1,0 +1,30 @@
+.roundedInput {
+    --border-color: var(--ion-color-medium-shade);
+    --border-radius: .7rem;
+    --border-width: 1px;
+    --box-shadow: 2px gray;
+    --highlight-height: 0;
+    --background: #ffffff;
+   }
+
+   
+.button{
+    --border-radius: 1rem;
+    --border-color: green;
+    color:#ffffff;
+}
+
+.button:hover{
+    background: green;
+    border-radius: 1rem;
+}
+
+.buttonDlt{
+    --border-radius: 1rem;
+    --border-color: red;
+    color:#ffffff;
+}
+.buttonDlt:hover{
+    background: red;
+    border-radius: 1rem;
+}

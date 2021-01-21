@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/reparaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modificar Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-item *ngIf="resultado" class="mr-3 ml-3 mb-3 roundedInput">
+    <ion-input  placeholder="Nombre de Usuario" [(ngModel)]="resultado.displayName"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="resultado" class="mr-3 ml-3 roundedInput">
+    <ion-input disabled="true" [(ngModel)]="resultado.email"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="resultado" class="mr-3 ml-3" style="display: none;">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input disabled="true" [(ngModel)]="resultado.emailVerified"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="saveProducto()" color="success">
+    Actualizar
+  </ion-button>
+
+</ion-content>

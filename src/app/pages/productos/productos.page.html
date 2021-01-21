@@ -1,0 +1,95 @@
+<app-menu></app-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title *ngIf="!this.productoId">
+        Dar de Alta Producto
+      </ion-title>
+      <ion-title *ngIf="this.productoId">
+        Modificar Producto
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content padding color="dark">
+    <div class="container">
+
+
+
+      <ion-item color="dark" *ngIf="producto" class="mt-5 mr-3 ml-3">
+        <ion-label>Marca del Producto</ion-label>
+        <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="producto.marcaProducto">
+          <ion-select-option value="Huawei">Huawei</ion-select-option>
+          <ion-select-option value="Motorola">Motorola</ion-select-option>
+          <ion-select-option value="Samsung">Samsung</ion-select-option>
+          <ion-select-option value="Apple">Apple</ion-select-option>
+          <ion-select-option value="Xiaomi">Xiaomi</ion-select-option>
+          <ion-select-option value="LG">LG</ion-select-option>
+          <ion-select-option value="Otros">Otros</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+
+      <ion-item color="dark" *ngIf="producto" class="mt-5 mr-3 ml-3">
+          <ion-label>Producto</ion-label>
+          <ion-select okText="Okay" cancelText="Dismiss"  [(ngModel)]="producto.producto">
+            <ion-select-option value="Pantalla">Pantalla</ion-select-option>
+            <ion-select-option value="Audifonos">Audifonos</ion-select-option>
+            <ion-select-option value="Micas">Micas</ion-select-option>
+            <ion-select-option value="Cargadores">Cargadores</ion-select-option>
+            <ion-select-option value="Pilas">Pilas</ion-select-option>
+            <ion-select-option value="Fundas">Fundas</ion-select-option>
+            <ion-select-option value="Piezas">Piezas</ion-select-option>
+            <ion-select-option value="Celulares">Celulares</ion-select-option>
+            <ion-select-option value="Laptops">Laptops</ion-select-option>
+            <ion-select-option value="Camaras">Camaras</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <ion-item *ngIf="producto" class=" mt-5 mr-3 ml-3 roundedInput">
+        <ion-input placeholder="Modelo del Producto" [(ngModel)]="producto.modeloProducto"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="producto" class="mt-5 mr-3 ml-3 roundedInput">
+        <ion-input placeholder="Cantidad del Producto" required type="number" [(ngModel)]="producto.cantidadProducto"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="producto" class="mt-5 mr-3 ml-3 roundedInput">
+        <ion-input placeholder="Precio Unitario del Producto" required type="number" [(ngModel)]="producto.precioUnitario"></ion-input>
+      </ion-item>
+
+      <ion-row *ngIf="this.productoId">
+        <ion-col> 
+          <ion-button (click)="saveProducto()" fill="outline" class=" mt-5 mr-3 ml-3 button" type="submit" expand="block">
+            Guardar Producto
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="!this.productoId">
+        <ion-col> 
+          <ion-button (click)="addProducto()" fill="outline" class=" mt-5 mr-3 ml-3 button" type="submit" expand="block">
+            Agregar Producto
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row *ngIf="this.productoId">
+        <ion-col> 
+          <ion-button (click)="deleteProducto()" fill="outline" class=" mt-2 mr-3 ml-3 buttonDlt" type="submit" expand="block">
+            Eliminar Producto
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+      
+    </div>
+
+
+
+    
+  </ion-content>
+</div>

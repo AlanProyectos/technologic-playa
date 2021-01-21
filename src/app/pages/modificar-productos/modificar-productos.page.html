@@ -1,0 +1,25 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Modificar Productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content color="dark" padding>
+    <div>
+
+
+        <ion-item color="dark" *ngFor="let producto of productos" lines ="inset" button [routerLink]="['/tabs/productos', producto.id]">
+          <ion-label>
+              {{producto.modeloProducto}} {{producto.producto}}
+          </ion-label>
+        </ion-item>
+
+
+    </div>
+  </ion-content>
+</div>

@@ -1,0 +1,127 @@
+<app-menu></app-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Dar de alta una Reparación</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content color="dark">
+    <form class="container mt-2">
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-input type="text" placeholder="Nombre del Cliente" [(ngModel)]="nombreCliente" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-item>
+              <ion-label>Fecha Entrega</ion-label>
+              <ion-datetime min="2000-02" max="2080" [(ngModel)]="fechaDejaron" [ngModelOptions]="{standalone: true}"
+                [dayShortNames]="customDayShortNames"
+                displayFormat="DDD. MMM DD, YY"
+                monthShortNames="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"></ion-datetime>
+            </ion-item>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-input type="text" maxlength="10" placeholder="Telefono" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-input type="text" placeholder="Marca" [(ngModel)]="marca" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-input type="text" placeholder="Modelo" [(ngModel)]="modelo" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-input type="text" placeholder="Color" [(ngModel)]="color" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="10">
+            <ion-label>
+              ¿El Equipo esta Encedido?
+            </ion-label>
+        </ion-col>
+        <ion-col size="2">
+          <ion-toggle color="success" [(ngModel)]="encendido" [ngModelOptions]="{standalone: true}"></ion-toggle>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-input type="text" placeholder="Contraseña o PIN" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item class="roundedInput">
+            <ion-textarea placeholder="Descripcion de la Falla" [(ngModel)]="descripcion" [ngModelOptions]="{standalone: true}"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            Partes del equipo a Reparar
+          </ion-label>
+  
+          <ionic-selectable headerColor="dark" [items]="partesEquipo" itemValueField="" itemTextField="" [isMultiple]="true" [(ngModel)]="partes_reparar" [ngModelOptions]="{standalone: true}">
+            <ng-template ionicSelectableCloseButton>
+              <ion-icon name="close-circle">
+  
+              </ion-icon>
+  
+            </ng-template>
+  
+          </ionic-selectable>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="success" (click)="addFix(nombreCliente,fechaDejaron,telefono,marca,modelo,color,encendido, password, descripcion,partes_reparar)">
+            Agregar Reparacion
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+
+    </form>
+  </ion-content>
+</div>
+

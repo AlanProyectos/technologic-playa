@@ -1,0 +1,16 @@
+ion-icon{
+    font-size: 2rem;
+}
+
+.agregarProd{
+    align-self: flex-end;
+}
+
+.roundedInput {
+    --border-color: var(--ion-color-medium-shade);
+    --border-radius: .7rem;
+    --border-width: 1px;
+    --box-shadow: 2px gray;
+    --highlight-height: 0;
+    --background: #f8f9fa;
+}

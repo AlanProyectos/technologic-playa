@@ -1,0 +1,30 @@
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/reparaciones"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Ventas de Mes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content color="dark">
+    <ion-row class="mt-4">
+      <ion-col size="12" class="center">
+        <h3>
+          {{this.nombre}}
+        </h3>
+      </ion-col>
+      <ion-col size="12" class="center">
+        <h3>
+          Cantidad de Ventas
+        </h3>
+      </ion-col>
+      <ion-col size="12">
+        <app-graficos></app-graficos>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</div>
+
