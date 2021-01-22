@@ -169,34 +169,64 @@ export class EntregarReparacionPage implements OnInit {
     console.log(fecha_entrega);
     console.log(equipo_entregado);
 
-    this.reparacionFinalizada.id =  this.route.snapshot.paramMap.get('id');
-    this.reparacionFinalizada.nombre = this.reparacion.nombre_cliente;
-    this.reparacionFinalizada.telefono = this.reparacion.telefono;
-    this.reparacionFinalizada.fecha_dejaron = this.reparacion.fecha_dejaron;
-    this.reparacionFinalizada.marca = this.reparacion.marca;
-    this.reparacionFinalizada.modelo = this.reparacion.modelo;
-    this.reparacionFinalizada.color = this.reparacion.color;
-    this.reparacionFinalizada.encedido = this.reparacion.encendido;
-    this.reparacionFinalizada.password = this.reparacion.password;
-    this.reparacionFinalizada.descripcion = this.reparacion.descripcion;
-    this.reparacionFinalizada.partes_reparar = this.reparacion.partes_reparar;
-    this.reparacionFinalizada.persona_reparo = personaReparo;
-    this.reparacionFinalizada.persona_entrego = personaEntrego;
-    this.reparacionFinalizada.detalle_reparacion = detalles_reparacion;
-    this.reparacionFinalizada.adicional = adicional;
-    this.reparacionFinalizada.cantidad_adicional = 1;
-    this.reparacionFinalizada.fecha_entrega = fecha_entrega;
+    if(adicional){
+      this.reparacionFinalizada.id =  this.route.snapshot.paramMap.get('id');
+      this.reparacionFinalizada.nombre = this.reparacion.nombre_cliente;
+      this.reparacionFinalizada.telefono = this.reparacion.telefono;
+      this.reparacionFinalizada.fecha_dejaron = this.reparacion.fecha_dejaron;
+      this.reparacionFinalizada.marca = this.reparacion.marca;
+      this.reparacionFinalizada.modelo = this.reparacion.modelo;
+      this.reparacionFinalizada.color = this.reparacion.color;
+      this.reparacionFinalizada.encedido = this.reparacion.encendido;
+      this.reparacionFinalizada.password = this.reparacion.password;
+      this.reparacionFinalizada.descripcion = this.reparacion.descripcion;
+      this.reparacionFinalizada.partes_reparar = this.reparacion.partes_reparar;
+      this.reparacionFinalizada.persona_reparo = personaReparo;
+      this.reparacionFinalizada.persona_entrego = personaEntrego;
+      this.reparacionFinalizada.detalle_reparacion = detalles_reparacion;
+      this.reparacionFinalizada.adicional = adicional;
+      this.reparacionFinalizada.cantidad_adicional = 1;
+      this.reparacionFinalizada.fecha_entrega = fecha_entrega;
+  
+      this.reparacionFinalizada.entregado = equipo_entregado;
+  
+      console.log(this.reparacionFinalizada);
+      this.reparacionFinalizadaSvc.addReparacionFinalizada(this.reparacionFinalizada);
 
-    this.reparacionFinalizada.entregado = equipo_entregado;
+      this.prodSvc.rebajaProductobyReparacion(this.new_producto, this.reparacionFinalizada);
+    }
+    else{
+      this.reparacionFinalizada.id =  this.route.snapshot.paramMap.get('id');
+      this.reparacionFinalizada.nombre = this.reparacion.nombre_cliente;
+      this.reparacionFinalizada.telefono = this.reparacion.telefono;
+      this.reparacionFinalizada.fecha_dejaron = this.reparacion.fecha_dejaron;
+      this.reparacionFinalizada.marca = this.reparacion.marca;
+      this.reparacionFinalizada.modelo = this.reparacion.modelo;
+      this.reparacionFinalizada.color = this.reparacion.color;
+      this.reparacionFinalizada.encedido = this.reparacion.encendido;
+      this.reparacionFinalizada.password = this.reparacion.password;
+      this.reparacionFinalizada.descripcion = this.reparacion.descripcion;
+      this.reparacionFinalizada.partes_reparar = this.reparacion.partes_reparar;
+      this.reparacionFinalizada.persona_reparo = personaReparo;
+      this.reparacionFinalizada.persona_entrego = personaEntrego;
+      this.reparacionFinalizada.detalle_reparacion = detalles_reparacion;
+      this.reparacionFinalizada.cantidad_adicional = 1;
+      this.reparacionFinalizada.fecha_entrega = fecha_entrega;
+  
+      this.reparacionFinalizada.entregado = equipo_entregado;
+  
+      console.log(this.reparacionFinalizada);
+      this.reparacionFinalizadaSvc.addReparacionFinalizada(this.reparacionFinalizada);
 
-    console.log(this.reparacionFinalizada);
+      this.prodSvc.rebajaProductobyReparacion(this.new_producto, this.reparacionFinalizada);
+    }
+
+    
 
 
 
 
-    this.reparacionFinalizadaSvc.addReparacionFinalizada(this.reparacionFinalizada);
-
-    this.prodSvc.rebajaProductobyReparacion(this.new_producto, this.reparacionFinalizada);
+    
 
   }
 

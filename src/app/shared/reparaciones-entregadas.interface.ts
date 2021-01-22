@@ -14,7 +14,7 @@ export interface ReparacionesFinalizadasInterface{
     persona_reparo:string;
     persona_entrego:string;
     detalle_reparacion:string;
-    adicional:string;
+    adicional?:string;
     cantidad_adicional:number;
     fecha_entrega:string;
     entregado:boolean;

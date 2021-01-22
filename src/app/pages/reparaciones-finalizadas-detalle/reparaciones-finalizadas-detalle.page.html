@@ -24,7 +24,7 @@
       </ion-col>
       <ion-col size="6">
         <h4>
-          {{reparacion.nombre_cliente}}
+          {{reparacion.nombre}}
         </h4>
       </ion-col>
     </ion-row>
@@ -103,6 +103,45 @@
       <ion-col size="6">
         <h4>
           {{reparacion.descripcion}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Tecnico que Reparo
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{reparo.displayName}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Persona que Entrego
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{entrego.displayName}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Detalles de la reparacion
+        </h4>
+      </ion-col>
+      <ion-col>
+        <h4>
+          {{reparacion.detalle_reparacion}}
         </h4>
       </ion-col>
     </ion-row>
