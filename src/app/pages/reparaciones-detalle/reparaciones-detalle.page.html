@@ -8,14 +8,7 @@
 </ion-header>
 
 <ion-content color="dark">
-  <div color="dark" *ngFor="let reparacion of reparaciones">
-    <ion-row>
-      <ion-col size="12">
-        <h3 style="text-align: end;">
-          {{reparacion.fecha_dejaron}}
-        </h3>
-      </ion-col>
-    </ion-row>
+  <div color="dark">
     <ion-row>
       <ion-col size="6">
         <h4>
@@ -24,33 +17,19 @@
       </ion-col>
       <ion-col size="6">
         <h4>
-          {{reparacion.nombre_cliente}}
+          {{this.nombre_cliente}}
         </h4>
       </ion-col>
     </ion-row>
-    
     <ion-row>
       <ion-col size="6">
         <h4>
-          Telefono
+          Telefono 
         </h4>
       </ion-col>
       <ion-col size="6">
         <h4>
-          {{reparacion.telefono}}
-        </h4>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="6">
-        <h4>
-          Marca
-        </h4>
-      </ion-col>
-      <ion-col size="6">
-        <h4>
-          {{reparacion.marca}}
+          {{this.telefono}}
         </h4>
       </ion-col>
     </ion-row>
@@ -58,12 +37,12 @@
     <ion-row>
       <ion-col size="6">
         <h4>
-          Modelo
+          Marca del Equipo 
         </h4>
       </ion-col>
       <ion-col size="6">
         <h4>
-          {{reparacion.modelo}}
+          {{this.marca}}
         </h4>
       </ion-col>
     </ion-row>
@@ -71,12 +50,12 @@
     <ion-row>
       <ion-col size="6">
         <h4>
-          Color
+          Modelo del Equipo 
         </h4>
       </ion-col>
       <ion-col size="6">
         <h4>
-          {{reparacion.color}}
+          {{this.modelo}}
         </h4>
       </ion-col>
     </ion-row>
@@ -84,12 +63,26 @@
     <ion-row>
       <ion-col size="6">
         <h4>
-          Password
+          Color del Equipo 
         </h4>
       </ion-col>
       <ion-col size="6">
         <h4>
-          {{reparacion.password}}
+          {{this.color}}
+        </h4>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Password del Equipo 
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{this.password}}
         </h4>
       </ion-col>
     </ion-row>
@@ -97,12 +90,12 @@
     <ion-row>
       <ion-col size="6">
         <h4>
-          Descripcion
+          Persona que reparo el Equipo 
         </h4>
       </ion-col>
       <ion-col size="6">
         <h4>
-          {{reparacion.descripcion}}
+          {{this.persona_reparo}}
         </h4>
       </ion-col>
     </ion-row>
@@ -110,59 +103,28 @@
     <ion-row>
       <ion-col size="6">
         <h4>
-          Partes por Reparar
+          Persona que entrego el Equipo 
         </h4>
       </ion-col>
-      <ion-col>
-        <ul *ngFor="let partes of reparacion.partes_reparar">
-          <li>{{partes}}</li>
-        </ul>
-      </ion-col>
-    </ion-row>
-
-    <ion-row *ngIf="reparacion.encendido == true">
-      <ion-col size="12">
-        <h4 style="text-align: center;">
-          El Telefono Esta Encendido
+      <ion-col size="6">
+        <h4>
+          {{this.person_entrego}}
         </h4>
       </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="reparacion.encendido == false">
-      <ion-col size="12">
-        <h4 style="text-align: center;">
-          El Telefono No Esta Encendido
+    <ion-row>
+      <ion-col size="6">
+        <h4>
+          Producto adicional por la reparacion
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4>
+          {{this.adicional}}
         </h4>
       </ion-col>
     </ion-row>
-
-    <ion-row *ngIf="reparacion.entregado == true">
-      <ion-col size="12">
-        <h5 color="success" style="text-align: center;color:greenyellow">
-          El Telefono ha sido entregado en la fecha {{reparacion.fecha_entrega}}
-        </h5>
-      </ion-col>
-    </ion-row>
-
-    
-
-    <ion-row *ngIf="reparacion.entregado == false">
-      <ion-col size="12">
-        <h4 color="success" style="text-align: center; color:red">
-          El Telefono no ha sido Entregado
-        </h4>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="block" color="success" (click)="entregarCelular(reparacion.id)">
-          <h5>
-            Entregar Celular
-          </h5>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-    
-
 
 
   </div>

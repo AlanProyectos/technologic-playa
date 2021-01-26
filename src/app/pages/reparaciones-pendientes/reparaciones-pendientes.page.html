@@ -11,40 +11,39 @@
   <div class='container'>
     <h3>Reparaciones Pendientes</h3>
 
-    <div class="mb-3" *ngFor="let reparacion of reparaciones" (click)="viewMoreInformation(reparacion.id)">
-      <ion-item color="dark" *ngIf="this.reparacionesEntregadas.id != reparacion.id" >
-
-          <ion-label>
-            {{reparacion.nombre_cliente}}
-          </ion-label>
-          <ion-label>
-            {{reparacion.marca}} {{reparacion.modelo}}
-          </ion-label>
-          <ion-label>
-            {{reparacion.fecha_dejaron}}
-          </ion-label>
-      </ion-item>
-    </div>
-
-
-    <h3>Reparaciones finalizadas</h3>
-
-    <div *ngFor="let reparacion of reparaciones" (click)="viewMoreInformationReparacionFinalizada(reparacion.id)">
-      <ion-item color="dark" *ngIf="this.reparacionesEntregadas.id == reparacion.id" >
-
-          <ion-label>
-            {{reparacion.nombre_cliente}}
-          </ion-label>
-          <ion-label>
-            {{reparacion.marca}} {{reparacion.modelo}}
-          </ion-label>
-          <ion-label>
-            {{reparacion.fecha_dejaron}}
-          </ion-label>
+    <div *ngFor="let reparacion of reparaciones">
+      <ion-item *ngIf="reparacion.entregado == false" color="dark" lines ="inset" button [routerLink]="['/entregar-reparacion', reparacion.id]">
+        <ion-label >
+          <ion-row>
+            <ion-col>
+              {{reparacion.nombre_cliente}}
+            </ion-col>
+            <ion-col>
+              {{reparacion.modelo}}
+            </ion-col>
+          </ion-row>
+        </ion-label>
       </ion-item>
     </div>
     
-    
+
+    <h3>
+      Reparaciones Finalizadas
+    </h3>
+
+    <div *ngFor="let reparacion of reparaciones">
+      <ion-item *ngIf="reparacion.entregado == true" color="dark" lines ="inset" button [routerLink]="['/reparaciones-detalle', reparacion.id]">
+        <ion-label>
+          <ion-row>
+            <ion-col>
+              {{reparacion.nombre_cliente}}
+            </ion-col>
+            <ion-col>
+              {{reparacion.modelo}}
+            </ion-col>
+          </ion-row>
+        </ion-label>
+      </ion-item>
+    </div>
   </div>
-  
 </ion-content>

@@ -1,9 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>reparaciones-finalizadas</ion-title>
+  <ion-toolbar color ="dark">
+    <ion-title>Reparaciones Finalizadas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark">
+    <div *ngFor="let reparacion of reparacionesEntregadas" (click)="viewMoreInformationReparacionFinalizada(reparacion.id)">
+      <ion-item color="dark" >
+
+          <ion-label>
+            {{reparacion.nombre}}
+          </ion-label>
+          <ion-label>
+            {{reparacion.marca}} {{reparacion.modelo}}
+          </ion-label>
+          <ion-label>
+            {{reparacion.fecha_dejaron}}
+          </ion-label>
+      </ion-item>
+    </div>
 
 </ion-content>

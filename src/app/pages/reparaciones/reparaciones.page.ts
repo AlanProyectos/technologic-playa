@@ -19,7 +19,6 @@ export class ReparacionesPage implements OnInit {
     fecha_dejaron: new Date(),
     entregado:false,
     nombre_cliente:'',
-    id:'',
     marca:'',
     modelo:'',
     password:'',
