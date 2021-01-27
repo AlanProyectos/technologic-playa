@@ -21,6 +21,14 @@ export class ReparacionesPendientesPage implements OnInit {
   })
   }
 
+  buscarReparacion(event){
+    
+
+    const texto = event.target.value;
+    console.log(texto);
+
+  }
+
  
 
 }

@@ -5,9 +5,17 @@
     </ion-buttons>
     
   </ion-toolbar>
+  
 </ion-header>
 
+
+
 <ion-content class="center" color="dark">
+
+  <div class="ion-header">
+    <ion-searchbar animated color="light" showCancelButton="always" (ionChange)="buscarReparacion($event)"></ion-searchbar>
+  </div>
+
   <div class='container'>
     <h3>Reparaciones Pendientes</h3>
 
