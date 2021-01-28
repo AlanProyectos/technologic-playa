@@ -2,7 +2,11 @@
   <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/productos"></ion-back-button>
+      
     </ion-buttons>
+    <ion-title>
+      Reparaciones
+    </ion-title>
     
   </ion-toolbar>
   
@@ -11,7 +15,7 @@
 
 
 <ion-content class="center" color="dark">
-
+  
   <div class="ion-header">
     <ion-searchbar animated color="light" showCancelButton="always" (ionChange)="buscarReparacion($event)"></ion-searchbar>
   </div>
@@ -19,7 +23,7 @@
   <div class='container'>
     <h3>Reparaciones Pendientes</h3>
 
-    <div *ngFor="let reparacion of reparaciones">
+    <div *ngFor="let reparacion of reparaciones | filtro:textoBuscar ">
       <ion-item *ngIf="reparacion.entregado == false" color="dark" lines ="inset" button [routerLink]="['/entregar-reparacion', reparacion.id]">
         <ion-label >
           <ion-row>
@@ -27,7 +31,7 @@
               {{reparacion.nombre_cliente}}
             </ion-col>
             <ion-col>
-              {{reparacion.modelo}}
+              {{reparacion.marca}} {{reparacion.modelo}}
             </ion-col>
           </ion-row>
         </ion-label>
@@ -39,7 +43,7 @@
       Reparaciones Finalizadas
     </h3>
 
-    <div *ngFor="let reparacion of reparaciones">
+    <div *ngFor="let reparacion of reparaciones | filtro:textoBuscar">
       <ion-item *ngIf="reparacion.entregado == true" color="dark" lines ="inset" button [routerLink]="['/reparaciones-detalle', reparacion.id]">
         <ion-label>
           <ion-row>

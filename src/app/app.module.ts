@@ -17,6 +17,7 @@ import { ComponentsModule } from './components/components.module';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import {EmailComposer} from "@ionic-native/email-composer/ngx";
 import { ChartsModule } from 'ng2-charts';
+import { PipesModule } from './pipes/pipes.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ChartsModule } from 'ng2-charts';
   ],
   entryComponents: [],
   imports: [
+    PipesModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,

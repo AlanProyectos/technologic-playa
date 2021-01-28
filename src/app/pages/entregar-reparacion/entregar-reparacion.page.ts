@@ -39,7 +39,8 @@ export class EntregarReparacionPage implements OnInit {
     entregado:false,
     fecha_dejaron:new Date(),
     fecha_entrega:new Date(),
-    cantidad_adicional:1
+    cantidad_adicional:1,
+    precio_reparacion:0
   }
 
   productoScaneado;
@@ -129,7 +130,7 @@ export class EntregarReparacionPage implements OnInit {
 
   }
 
-  entregarReparacion(personaReparo:string,personaEntrego:string,detalles_reparacion:string,adicional:string,fecha_entrega:string,equipo_entregado){
+  entregarReparacion(personaReparo:string,personaEntrego:string,detalles_reparacion:string,adicional:string,fecha_entrega:string,equipo_entregado, precio_reparacion:number){
 
     let FechaEntrega = new Date(fecha_entrega); 
     if(adicional){
@@ -155,10 +156,12 @@ export class EntregarReparacionPage implements OnInit {
         this.reparaciones.fecha_entrega =  FechaEntrega;
         this.reparaciones.entregado = equipo_entregado;
         this.reparaciones.cantidad_adicional = 1;
+        this.reparaciones.precio_reparacion = precio_reparacion;
 
         console.log('Reparacion Finalizada', this.reparaciones);
 
         this.reparacionSvc.updateReparacion(this.reparacionId, this.reparaciones);
+        this.prodSvc.rebajaProductobyReparacion(this.new_producto,this.reparaciones);
       })
     }
     else
@@ -184,6 +187,7 @@ export class EntregarReparacionPage implements OnInit {
           this.reparaciones.fecha_entrega =  FechaEntrega;
           this.reparaciones.entregado = equipo_entregado;
           this.reparaciones.cantidad_adicional = 1;
+          this.reparaciones.precio_reparacion = precio_reparacion;
 
           console.log('Reparacion Finalizada', this.reparaciones);
 

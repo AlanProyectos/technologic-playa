@@ -43,7 +43,6 @@
       <ion-item>
         <ion-textarea placeholder="Enter more information here..." [(ngModel)]="detalles_reparacion"></ion-textarea>
       </ion-item>
-
     </ion-col>
   </ion-row>
 
@@ -85,11 +84,24 @@
 
   <ion-row>
     <ion-col>
-      <ion-button color="success" (click)="entregarReparacion(personaReparo,personaEntrego,detalles_reparacion,adicional,fecha_entrega,equipo_entregado)" shape="round" expand="full">
+      <ion-label>
+        Precio de la Reparacion
+      </ion-label>
+      <ion-item class="roundedInput">
+        <ion-input placeholder="$4000" [(ngModel)]="precio_reparacion"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <ion-button color="success" (click)="entregarReparacion(personaReparo,personaEntrego,detalles_reparacion,adicional,fecha_entrega,equipo_entregado,precio_reparacion)" shape="round" expand="full">
         Entregar Equipo
       </ion-button>
     </ion-col>
   </ion-row>
+
+  
 
 
 

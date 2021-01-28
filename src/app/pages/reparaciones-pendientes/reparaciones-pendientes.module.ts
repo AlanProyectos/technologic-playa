@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { ReparacionesPendientesPageRoutingModule } from './reparaciones-pendientes-routing.module';
 
 import { ReparacionesPendientesPage } from './reparaciones-pendientes.page';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
+    PipesModule,
     CommonModule,
     FormsModule,
     IonicModule,

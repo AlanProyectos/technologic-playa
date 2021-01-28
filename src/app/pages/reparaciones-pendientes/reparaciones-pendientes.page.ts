@@ -10,6 +10,7 @@ import { ReparacionesInterface } from 'src/app/shared/reparaciones.interface';
 export class ReparacionesPendientesPage implements OnInit {
 
   reparaciones: ReparacionesInterface[];
+  textoBuscar = '';
 
   constructor(private reparacionesSvc : ReparacionesService) { }
   
@@ -26,6 +27,7 @@ export class ReparacionesPendientesPage implements OnInit {
 
     const texto = event.target.value;
     console.log(texto);
+    this.textoBuscar = texto;
 
   }
 

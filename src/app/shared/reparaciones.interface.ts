@@ -18,4 +18,5 @@ export interface ReparacionesInterface{
     fecha_entrega ?:Date;
     entregado ?:boolean;
     detalle_reparacion ?: string;
+    precio_reparacion?:number;
 }

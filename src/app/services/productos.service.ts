@@ -7,6 +7,7 @@ import { switchMap, map  } from 'rxjs/operators';
 import { Product } from '../shared/productos.interface';
 import { Ventas } from '../shared/ventas.interface';
 import { ReparacionesFinalizadasInterface } from '../shared/reparaciones-entregadas.interface';
+import { ReparacionesInterface } from '../shared/reparaciones.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -104,7 +105,7 @@ import { ReparacionesFinalizadasInterface } from '../shared/reparaciones-entrega
         return userRef.set(data, {merge:true});
       }
 
-      async rebajaProductobyReparacion(prod:Product, reparacion:ReparacionesFinalizadasInterface ){
+      async rebajaProductobyReparacion(prod:Product, reparacion:ReparacionesInterface ){
 
         console.log(prod);
         console.log(reparacion);

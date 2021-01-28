@@ -25,7 +25,9 @@ export class ReparacionesPage implements OnInit {
     partes_reparar:[]
   };
 
-  partesEquipo=['Cámaras','Botón de Volumen','Botón de Power','Tapa Trasera','Botón Bloque','Camara Frontal','Pantalla','Botón Home','Centro de Carga','Microfono','Entrada de Jack Audio']
+  marcasEquipo=['Iphone','Ipad','Huawei', 'Xiaomi','Motorola','Mac','Samsung','Toshiba','HP','Acer','ASUS','Lenovo','Otros']
+
+  partesEquipo=['Cámaras','Botón de Volumen','Bateria','Botón de Power','Tapa Trasera','Botón Bloque','Camara Frontal','Pantalla','Botón Home','Centro de Carga','Microfono','Entrada de Jack Audio']
   
 
   constructor(private reparacionesSvc: ReparacionesService, private alertCtrl: AlertService, private router: Router) { }

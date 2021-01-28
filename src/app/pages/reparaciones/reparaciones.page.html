@@ -45,12 +45,22 @@
 
       <ion-row>
         <ion-col>
-          <ion-item class="roundedInput">
-            <ion-input type="text" placeholder="Marca" [(ngModel)]="marca" [ngModelOptions]="{standalone: true}"></ion-input>
-          </ion-item>
+          <ion-label>
+            Marca del Equipo
+          </ion-label>
+  
+          <ionic-selectable headerColor="dark" [items]="marcasEquipo" itemValueField="" itemTextField="" [isMultiple]="true" [(ngModel)]="marca" [ngModelOptions]="{standalone: true}">
+            <ng-template ionicSelectableCloseButton>
+              <ion-icon name="close-circle">
+  
+              </ion-icon>
+  
+            </ng-template>
+  
+          </ionic-selectable>
         </ion-col>
       </ion-row>
-
+      
       <ion-row>
         <ion-col>
           <ion-item class="roundedInput">
